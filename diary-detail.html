@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>日记详情</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="sub-header">
+    <h1 id="diary-title">雪地撒欢</h1>
+    <a href="diaries.html" class="back-btn">← 返回</a>
+  </header>
+
+  <main class="detail-page">
+    <img src="images/diaries/diary1.jpg" alt="日记配图" class="detail-img">
+    <div class="detail-content">
+      <p>2025年12月20日 · 晴 · -2°C</p>
+      <p>今天终于下雪了！带Yuki去小区后面的公园玩。它一开始不敢踩雪，后来直接打滚，变成一只“雪狗”。</p>
+      <p>馒头因为怕冷不肯出门，在窗边眼巴巴看着我们，回家后还生气不理我……</p>
+      <p>—— 小安</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 小安 · 馒头与Yuki的小世界</p>
+  </footer>
+
+  <script>
+    const id = new URLSearchParams(window.location.search).get('id') || '1';
+    const titles = { '1': '雪地撒欢', '2': '馒头的新玩具' };
+    const imgs = { '1': 'diary1.jpg', '2': 'diary2.jpg' };
+    document.getElementById('diary-title').textContent = titles[id] || '日记';
+    document.querySelector('.detail-img').src = 'images/diaries/' + (imgs[id] || 'diary1.jpg');
+  </script>
+</body>
+</html>
