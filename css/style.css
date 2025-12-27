@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #f8e9d2;
+  --secondary: #e6c7a0;
+  --accent: #b5d9e6;
+  --highlight: #f4a7b9;
+  --text-dark: #4a4a4a;
+  --text-light: #fff;
+  --shadow: rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background-color: var(--primary);
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+/* 全局链接 */
+a {
+  text-decoration: none;
+  color: var(--secondary);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+a:hover {
+  color: var(--highlight);
+}
+
+/* 首页 Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom, var(--accent), var(--primary));
+  color: var(--text-dark);
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero nav a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 8px 16px;
+  background: var(--text-light);
+  border-radius: 30px;
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: all 0.3s ease;
+}
+.hero nav a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px var(--shadow);
+  background: var(--secondary);
+  color: var(--text-light);
+}
+
+/* 卡片通用 */
+.hover-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+/* 首页卡片 */
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+.home-cards .card {
+  padding: 1.5rem;
+  text-align: center;
+}
+.home-cards .card h2 {
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+.home-cards .card a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--accent);
+}
+
+/* 子页面头部 */
+.sub-header {
+  background: var(--secondary);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+.back-btn {
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* 网格布局（宠物/领养） */
+.grid-container, .diary-list, .adoption-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+.pet-item img, .diary-item img, .adopt-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.pet-item:hover img, .diary-item:hover img, .adopt-item:hover img {
+  transform: scale(1.05);
+}
+.pet-item h3, .diary-item h3, .adopt-item h3 {
+  margin: 1rem 0 0.5rem;
+  color: var(--text-dark);
+}
+
+/* 详情页 */
+.detail-page, .about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .detail-page, .about-page {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+.detail-img, .profile-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px var(--shadow);
+}
+.detail-content, .about-text {
+  max-width: 600px;
+}
+.detail-content h2, .about-text h2 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+.detail-content ul {
+  list-style: none;
+  margin: 1rem 0;
+}
+.detail-content li {
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+}
+.detail-content li::before {
+  content: "•";
+  color: var(--highlight);
+  position: absolute;
+  left: 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--text-dark);
+  color: white;
+  margin-top: 3rem;
+}
+
+/* 响应式 */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .home-cards {
+    grid-template-columns: 1fr;
+  }
+}
